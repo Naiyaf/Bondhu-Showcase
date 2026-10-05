@@ -1,14 +1,21 @@
 :root {
-  --bg: #0b0f19;
-
-  --text: #ffffff;
-  --text-muted: #94a3b8;
-
-  --cyan: #38bdf8;
-  --cyan-glow: rgba(56, 189, 248, 0.2);
-
-  --safe-padding: 60px 80px;
-
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-glass: rgba(255, 255, 255, 0.7);
+  --surface-tint: rgba(240, 249, 255, 0.72);
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-soft: #94a3b8;
+  --cyan: #0ea5e9;
+  --cyan-glow: rgba(14, 165, 233, 0.14);
+  --green: #10b981;
+  --green-glow: rgba(16, 185, 129, 0.12);
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 24px 70px rgba(15, 23, 42, 0.1);
+  --shadow-card: 0 16px 44px rgba(15, 23, 42, 0.08);
+  --ease-premium: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --safe-padding: clamp(36px, 4.2vw, 86px) clamp(44px, 5.2vw, 112px);
   --hero-size: clamp(72px, 5.2vw, 120px);
   --scene-title-size: clamp(48px, 3.5vw, 80px);
   --subtitle-size: clamp(20px, 1.55vw, 36px);
@@ -32,10 +39,8 @@ body {
   background: var(--bg);
   color: var(--text);
 
-  font-family:
-    Inter,
-    "Segoe UI",
-    sans-serif;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-feature-settings: "ss01" 1, "cv11" 1;
 
   overflow: hidden;
 }

@@ -1,17 +1,20 @@
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    filter: blur(5px);
+    transform: translate3d(0, 18px, 0) scale(0.985);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 .fade-up {
-  animation: fadeUp 1s ease;
+  animation: fadeUp 1s var(--ease-premium) both;
+  will-change: opacity, filter, transform;
 }
 
 .animated-background {
@@ -25,8 +28,8 @@
 .animated-background__orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.45;
+  filter: blur(90px);
+  opacity: 0.5;
 }
 
 .animated-background__orb--one {
@@ -34,7 +37,7 @@
   left: -8%;
   width: min(42vw, 520px);
   aspect-ratio: 1;
-  background: rgba(56, 189, 248, 0.2);
+  background: rgba(14, 165, 233, 0.16);
 }
 
 .animated-background__orb--two {
@@ -42,35 +45,33 @@
   bottom: -28%;
   width: min(55vw, 680px);
   aspect-ratio: 1;
-  background: rgba(37, 99, 235, 0.16);
+  background: rgba(16, 185, 129, 0.1);
 }
 
 .animated-background__grid {
   position: absolute;
   inset: 0;
-  opacity: 0.12;
-  background-image:
-    linear-gradient(rgba(125, 211, 252, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.08) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(to bottom, transparent, black 35%, transparent);
+  opacity: 0.38;
+  background-image: radial-gradient(rgba(14, 165, 233, 0.18) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 68%);
 }
 
 .animated-background__vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 25%, rgba(2, 6, 23, 0.65) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 44%, rgba(224, 242, 254, 0.22));
 }
 @keyframes floatGlow {
   0% {
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 
   50% {
-    transform: translate(40px, -40px);
+    transform: translate3d(40px, -40px, 0) scale(1.04);
   }
 
   100% {
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }

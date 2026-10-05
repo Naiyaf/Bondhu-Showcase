@@ -21,7 +21,7 @@ function AnimatedTransition({
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{ duration, ease: "easeInOut" }}
+      transition={{ duration, ease: [0.22, 0.61, 0.36, 1] }}
     >
       {children}
     </motion.div>

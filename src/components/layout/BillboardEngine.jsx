@@ -52,11 +52,15 @@ function BillboardEngine({
 
   const scene = normalizedScenes[currentIndex];
   const CurrentScene = scene.component;
+  const transitionDuration = scene.id === "awareness" ? 0.42 : 0.8;
 
   return (
     <div className={`billboard-engine ${className}`.trim()}>
       <AnimatePresence mode="wait" initial>
-        <AnimatedTransition transitionKey={scene.id}>
+        <AnimatedTransition
+          transitionKey={scene.id}
+          duration={transitionDuration}
+        >
           <CurrentScene />
         </AnimatedTransition>
       </AnimatePresence>

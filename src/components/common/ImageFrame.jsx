@@ -18,7 +18,7 @@ function ImageFrame({
       decoding="async"
       initial={animateOnMount ? { opacity: 0, scale: 0.97 } : false}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
       {...props}
     />
   );

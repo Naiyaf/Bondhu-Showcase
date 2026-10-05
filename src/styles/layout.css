@@ -225,10 +225,53 @@
   transform-origin: center;
 }
 
+.scene--need {
+  gap: 0;
+}
+
+.scene--need .need-line {
+  width: min(280px, 24vw);
+  height: 2px;
+  margin-bottom: clamp(2rem, 3vw, 3.25rem);
+  border-radius: 999px;
+  box-shadow: 0 0 24px rgba(14, 165, 233, 0.18);
+}
+
+.scene--need .section-title {
+  width: min(1120px, 88%);
+  padding: clamp(2.2rem, 4vw, 4rem) clamp(2rem, 5vw, 5rem);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 26px 80px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(24px) saturate(135%);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+}
+
+.scene--need .scene-title {
+  max-width: 12ch;
+  margin-inline: auto;
+  font-size: clamp(64px, 6vw, 126px);
+  line-height: 0.92;
+}
+
+.scene--need .scene-subtitle {
+  max-width: 34ch;
+  margin: clamp(1.5rem, 2.2vw, 2.25rem) auto 0;
+  line-height: 1.25;
+}
+
 .need-points {
   display: flex;
   gap: 4rem;
-  margin-top: 4rem;
+  margin-top: clamp(2.5rem, 4vw, 4rem);
+  padding: 0.8rem 1.4rem;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.54);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .need-points span {
@@ -848,17 +891,17 @@
 }
 
 @keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, -8px, 0) scale(1.006); }
 }
 
 @keyframes pointPulse {
-  0%, 100% { opacity: 0.35; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.3); }
+  0%, 100% { opacity: 0.42; transform: scale(0.86); }
+  50% { opacity: 1; transform: scale(1.16); }
 }
 
 @keyframes routePulse {
-  0%, 100% { opacity: 0.25; transform: scaleX(0.7); }
+  0%, 100% { opacity: 0.3; transform: scaleX(0.78); }
   50% { opacity: 1; transform: scaleX(1); }
 }
 
@@ -1026,4 +1069,486 @@
   margin: 2rem 0;
 
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Light product-showcase skin. Scene structure and motion remain unchanged. */
+.app-container {
+  isolation: isolate;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 48%, #f0fdf9 100%);
+}
+
+.scene {
+  position: relative;
+  isolation: isolate;
+}
+
+.scene::before {
+  position: absolute;
+  inset: var(--safe-padding);
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 34px;
+  content: "";
+  pointer-events: none;
+}
+
+.section-eyebrow {
+  color: var(--cyan);
+  letter-spacing: 0.18em;
+}
+
+.scene-title {
+  color: var(--text);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.scene-subtitle,
+.hero-tagline {
+  color: var(--text-muted);
+}
+
+.glass-card,
+.feature-card,
+.awareness-panel,
+.video-frame,
+.hero-visual,
+.awareness-visual {
+  border: 1px solid var(--border);
+  background: var(--surface-glass);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(24px) saturate(135%);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+}
+
+.glass-card {
+  border-radius: 24px;
+}
+
+.feature-card {
+  border-radius: 22px;
+  color: var(--text);
+}
+
+.feature-card__icon {
+  color: var(--cyan);
+  background: var(--cyan-glow);
+}
+
+.feature-card__body p,
+.feature-card__status,
+.awareness-panel small,
+.tracking-panel__metric span,
+.pipeline-stage p,
+.ecosystem-card p {
+  color: var(--text-muted);
+}
+
+.feature-card__status {
+  color: var(--green);
+}
+
+.hero-copy {
+  transform: translateY(-90px);
+}
+
+.hero-visual {
+  min-height: 72%;
+  overflow: hidden;
+  border-radius: 32px;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(224, 242, 254, 0.62)) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(224, 242, 254, 0.62)),
+    rgba(255, 255, 255, 0.66);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-visual::after {
+  border-color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-robot {
+  filter: drop-shadow(0 26px 28px rgba(15, 23, 42, 0.16));
+}
+
+.hero-robot--portrait {
+  width: min(78%, 760px);
+  height: calc(100% - 32px);
+  max-height: none;
+  justify-self: center;
+  object-fit: contain;
+  object-position: center;
+}
+
+.hero-tagline {
+  border-left-color: var(--cyan);
+}
+
+.need-line {
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+
+.need-points span {
+  background: var(--green);
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.35);
+}
+
+.following-media .video-frame {
+  border-radius: 28px;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.14);
+}
+
+.tracking-panel {
+  padding: 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface-glass);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(20px);
+}
+
+.tracking-panel__metric {
+  border-bottom-color: var(--border);
+}
+
+.tracking-panel__metric strong,
+.tracking-panel__route i {
+  color: var(--cyan);
+}
+
+.tracking-panel__route i {
+  background-color: var(--cyan);
+}
+
+.awareness-panel {
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.awareness-panel h2,
+.awareness-panel strong,
+.pipeline-stage h2,
+.ecosystem-card h2 {
+  color: var(--text);
+}
+
+.awareness-panel li {
+  border-bottom-color: var(--border);
+}
+
+.awareness-panel__bullet {
+  background: var(--green);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.3);
+}
+
+.awareness-radar {
+  border-color: rgba(14, 165, 233, 0.22);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.13), transparent 68%);
+}
+
+.awareness-radar__ring,
+.assistant-orb,
+.assistant-orb__halo,
+.assistant-orb__wave {
+  border-color: rgba(14, 165, 233, 0.26);
+}
+
+.awareness-radar__core,
+.ecosystem__core {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.14);
+}
+
+.data-ring__track {
+  stroke: rgba(15, 23, 42, 0.08);
+}
+
+.data-ring__value {
+  stroke: var(--green);
+}
+
+.assistant-orb {
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.14), transparent 68%);
+}
+
+.assistant-orb span,
+.assistant-card__quote {
+  color: var(--text);
+}
+
+.assistant-card__translation,
+.status-pill--muted {
+  color: var(--text-muted);
+}
+
+.voice-wave i {
+  background: var(--cyan);
+}
+
+.status-pill {
+  color: var(--green);
+  border-color: rgba(16, 185, 129, 0.22);
+  background: rgba(236, 253, 245, 0.72);
+}
+
+.status-pill--amber {
+  color: #d97706;
+  border-color: rgba(217, 119, 6, 0.22);
+}
+
+.pipeline-stage__node,
+.ecosystem-card__icon {
+  border-color: rgba(14, 165, 233, 0.28);
+  color: var(--cyan);
+  background: rgba(240, 249, 255, 0.8);
+  box-shadow: 0 12px 24px rgba(14, 165, 233, 0.1);
+}
+
+.pipeline-stage__connector,
+.ecosystem__connections i {
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.52), rgba(16, 185, 129, 0.12));
+}
+
+.closing-robot {
+  opacity: 0.2;
+  filter: grayscale(1) drop-shadow(0 24px 30px rgba(14, 165, 233, 0.2));
+}
+
+.closing-copy p {
+  color: var(--text-muted);
+}
+
+.closing-copy h1 {
+  color: var(--cyan);
+}
+
+.closing-copy span {
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --safe-padding: 28px 36px;
+  }
+
+  .hero-copy {
+    transform: translateY(-28px);
+  }
+
+  .tracking-panel {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .scene-heading-row,
+  .awareness-layout {
+    width: min(1540px, 100%);
+  }
+
+  .awareness-layout {
+    grid-template-columns: minmax(390px, 0.78fr) minmax(0, 1.22fr);
+    gap: clamp(4rem, 6vw, 7rem);
+  }
+
+  .awareness-radar {
+    width: min(430px, 100%);
+  }
+
+  .awareness-panel {
+    min-height: 500px;
+    padding: clamp(2.5rem, 4vw, 4.5rem);
+  }
+
+  .assistant-layout {
+    width: min(1280px, 100%);
+    grid-template-columns: minmax(320px, 0.82fr) minmax(480px, 1.18fr);
+  }
+
+  .assistant-orb {
+    width: min(360px, 30vw);
+  }
+
+  .assistant-card {
+    padding: 2rem 2.25rem;
+  }
+
+  .emergency-pipeline,
+  .ecosystem {
+    width: min(1480px, 100%);
+  }
+
+  .pipeline-stage__node {
+    width: 88px;
+    height: 88px;
+  }
+
+  .pipeline-stage__connector {
+    top: 44px;
+    left: calc(50% + 45px);
+    width: calc(100% - 90px);
+  }
+
+  .ecosystem__nodes {
+    gap: 1.5rem;
+  }
+
+  .ecosystem-card {
+    min-height: 210px;
+    padding: 2rem;
+  }
+}
+
+/* Give the care network and emergency flow a stronger presentation hierarchy. */
+.ecosystem__node--bondhu {
+  gap: 1rem;
+  margin-bottom: 2.75rem;
+  color: var(--text);
+  letter-spacing: 0.24em;
+}
+
+.ecosystem__node--bondhu .ecosystem__core {
+  width: 92px;
+  height: 92px;
+  color: var(--cyan);
+  font-size: 2.7rem;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 42px rgba(14, 165, 233, 0.16);
+}
+
+.ecosystem__connections {
+  top: 48px;
+}
+
+.ecosystem-card {
+  min-height: 190px;
+  padding: 1.75rem 1.5rem;
+  border-color: rgba(14, 165, 233, 0.12);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+}
+
+.ecosystem-card__icon {
+  width: 64px;
+  height: 64px;
+  color: var(--cyan);
+  font-size: 1.7rem;
+  background: rgba(240, 249, 255, 0.92);
+}
+
+.ecosystem-card h2 {
+  color: var(--text);
+  font-size: clamp(1.35rem, 1.8vw, 1.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.ecosystem-card p {
+  margin-top: 0.55rem;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 1.35;
+}
+
+.emergency-status {
+  margin: 2.5rem auto 3.5rem;
+}
+
+.scene--emergency .status-pill {
+  padding: 0.7rem 1rem;
+  font-size: 0.76rem;
+  background: rgba(255, 251, 235, 0.9);
+  box-shadow: 0 10px 24px rgba(217, 119, 6, 0.08);
+}
+
+.emergency-pipeline {
+  gap: 1rem;
+}
+
+.pipeline-stage {
+  min-height: 220px;
+  padding: 1.2rem 1rem 1.5rem;
+  border: 1px solid rgba(14, 165, 233, 0.1);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.07);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+}
+
+.pipeline-stage__node {
+  width: 82px;
+  height: 82px;
+  margin-bottom: 1.35rem;
+  border-width: 2px;
+  background: rgba(240, 249, 255, 0.96);
+}
+
+.pipeline-stage h2 {
+  color: var(--text);
+  font-size: clamp(1.35rem, 1.8vw, 1.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.pipeline-stage p {
+  margin-top: 0.65rem;
+  color: var(--text-muted);
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+}
+
+.pipeline-stage__connector {
+  top: 41px;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.scene--ecosystem > .section-title,
+.scene--emergency > .section-title {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+  text-align: center;
+  align-self: center;
+}
+
+.scene--ecosystem > .section-title .scene-subtitle,
+.scene--emergency > .section-title .scene-subtitle {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.scene--ecosystem > .section-title .scene-subtitle {
+  max-width: 30ch;
+}
+
+.scene--emergency > .section-title .scene-subtitle {
+  max-width: 34ch;
+}
+
+.scene--ecosystem .ecosystem__connections i {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.58), rgba(14, 165, 233, 0.12));
+}
+
+.scene--ecosystem .ecosystem-card {
+  border-radius: 28px;
+}
+
+.scene--emergency .emergency-pipeline {
+  padding: 1.25rem;
+  border: 1px solid rgba(14, 165, 233, 0.08);
+  border-radius: 28px;
+  background: rgba(240, 249, 255, 0.42);
+}
+
+.scene--emergency .pipeline-stage {
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.scene--emergency .pipeline-stage__node {
+  color: var(--cyan);
+  background: rgba(240, 249, 255, 1);
 }
